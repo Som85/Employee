@@ -131,32 +131,7 @@ export class EmployeeService {
     isDeleted: boolean,
     searchCriteria: any
   ) {
-    // of(this._employeeData.filter((elem) => elem.deleted === isDeleted))
-    //   .pipe(
-    //     map((data: any) => {
-    //       let tempData = data;
-    //       if (searchCriteria.name) {
-    //         tempData = tempData.filter((elem) =>
-    //           elem.name.includes(searchCriteria.name)
-    //         );
-    //       }
-    //       if (searchCriteria.address) {
-    //         tempData = tempData.filter((elem) =>
-    //           elem.address.includes(searchCriteria.address)
-    //         );
-    //       }
-    //       if (searchCriteria.company) {
-    //         tempData = tempData.filter((elem) =>
-    //           elem.company.includes(searchCriteria.company)
-    //         );
-    //       }
-    //       return tempData;
-    //     }),
-    //     map((data) => console.log(data))
-    //   )
-    //   .subscribe((result) => subject.next(result));
-
-    const tempData = this._employeeData.filter(
+     const tempData = this._employeeData.filter(
       (elem) => elem.deleted === isDeleted
     );
 
