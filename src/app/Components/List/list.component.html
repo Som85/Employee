@@ -1,0 +1,52 @@
+<!-- <div class="container"> -->
+ 
+
+  <div class="row col-md-12">
+    <ng-container *ngFor="let column of metaData.columns">
+      <div class="col-md-3 border text-center fw-bold" style="height: 40px">
+        {{ column.label }}
+      </div>
+    </ng-container>
+  </div>
+  <ng-container *ngFor="let row of rowData">
+    <div class="row col-md-12 align-middle" style="height: 50px">
+      <ng-container *ngFor="let column of metaData.columns">
+        <div
+          *ngIf="column.field !== 'actions'"
+          class="col-md-3 border text-center"
+        >
+          <span class="align-middle"> {{ row[column.field] }}</span>
+        </div>
+        <div
+          *ngIf="column.field === 'actions'"
+          class="col-md-3 border text-center"
+        >
+          <button
+            type="button"
+            class="btn btn-primary m-1"
+            *ngIf="metaData.edit"
+            (click)="edit(row)"
+          >
+            Edit
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary m-1"
+            *ngIf="metaData.restore"
+            (click)="restore(row)"
+          >
+            Restore
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger m-1"
+            *ngIf="metaData.delete"
+            (click)="delete(row)"
+          >
+            Delete
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+<!-- </div> -->

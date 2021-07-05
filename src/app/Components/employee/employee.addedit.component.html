@@ -1,0 +1,49 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onFormSubmit(employeeForm.value)">
+  <div class="row col-md-12">
+    <div class="col-md-3 m-2">
+      <mat-form-field class="form-field">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput placeholder="Name" />
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 m-2">
+      <mat-form-field class="form-field">
+        <mat-label> Street </mat-label>
+        <input matInput formControlName="street" placeholder="Street" />
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 m-2">
+      <mat-form-field class="form-field">
+        <mat-label> Suite </mat-label>
+        <input matInput formControlName="suite" placeholder="Suite" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 m-2">
+      <mat-form-field class="form-field">
+        <mat-label> City </mat-label>
+        <input matInput formControlName="city" placeholder="City" />
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 m-2">
+      <mat-form-field class="form-field">
+        <mat-label> zip code </mat-label>
+        <input matInput formControlName="zipcode" placeholder="Zip code" />
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 m-2">
+        <mat-form-field class="form-field">
+          <mat-label> Company </mat-label>
+          <input matInput formControlName="company" placeholder="Company" />
+        </mat-form-field>
+      </div>
+  </div>
+ 
+  <div class="row">
+    <div class="col-md-12 text-end">
+        <button type="submit" class="btn btn-primary m-2">Save</button>
+        <button type="button" class="btn btn-primary m-2" (click)="close()">Close</button>
+    </div>    
+  </div>
+</form>

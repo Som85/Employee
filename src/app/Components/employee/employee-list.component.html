@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row col-md-12">
+    <div class="row col-md-12">
+      <div class="col-md-10 text-center">
+        <h2>Employee List</h2>
+      </div>
+      <div class="col-md-2 text-end">
+        <button type="button" class="btn btn-primary m-1 p-2" (click)="add()">
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row col-md-12">
+    <div class="col-md-3">
+      <auto-complete
+        [data]="getActiveEmplpoyeesSearchOptions()"
+        [options]="{ field: 'name' }"
+        (selectedObjectChange)="filterActiveEmployees('name', $event)"
+      ></auto-complete>
+    </div>
+    <div class="col-md-3">
+      <auto-complete
+        [data]="getActiveEmplpoyeesSearchOptions()"
+        [options]="{ field: 'address' }"
+        (selectedObjectChange)="filterActiveEmployees('address', $event)"
+      ></auto-complete>
+    </div>
+    <div class="col-md-3">
+      <auto-complete
+        [data]="getActiveEmplpoyeesSearchOptions()"
+        [options]="{ field: 'company' }"
+        (selectedObjectChange)="filterActiveEmployees('company', $event)"
+      ></auto-complete>
+    </div>
+  </div>
+
+  <list
+    [metaData]="employeeListMetaData"
+    [data]="getActiveEmployees()"
+    class="m-13"
+    (onEdit)="edit($event)"
+    (onDelete)="delete($event)"
+  ></list>
+  <p></p>
+  <div class="row col-md-12">
+    <div class="row col-md-12">
+      <div class="col-md-10 text-center">
+        <h2>Deleted Employee List</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row col-md-12">
+    <div class="col-md-3">
+      <auto-complete
+        [data]="getDeletedEmplpoyeesSearchOptions()"
+        [options]="{ field: 'name' }"
+        (selectedObjectChange)="filterDeletedEmployees('name', $event)"
+      ></auto-complete>
+    </div>
+    <div class="col-md-3">
+      <auto-complete
+        [data]="getDeletedEmplpoyeesSearchOptions()"
+        [options]="{ field: 'address' }"
+        (selectedObjectChange)="filterDeletedEmployees('address', $event)"
+      ></auto-complete>
+    </div>
+    <div class="col-md-3">
+      <auto-complete
+        [data]="getDeletedEmplpoyeesSearchOptions()"
+        [options]="{ field: 'company' }"
+        (selectedObjectChange)="filterDeletedEmployees('company', $event)"
+      ></auto-complete>
+    </div>
+  </div>
+  <list
+    [metaData]="deletedEmployeeListMetaData"
+    [data]="getDeletedEmployees()"
+    (onRestore)="restore($event)"
+  ></list>
+</div>
